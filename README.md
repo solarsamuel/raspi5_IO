@@ -8,19 +8,26 @@ check gpio line configuration (copy line below to terminal)
 gpioinfo
 
 set output 25 high (copy line below to terminal)
+
 gpioset gpiochip4 25=1
 
 set output 25 low (copy line below to terminal)
+
 gpioset gpiochip4 25=0
 
 monitor input 16 state (copy line below to terminal)
+
 gpioset gpiochip4 16
 
 USEFUL LINKS:
-Video:
+
+Video: https://youtu.be/koUr7oOyUXY
+
 Access gpio with gpiod:
 https://www.ics.com/blog/gpio-programming-exploring-libgpiod-library
+
 https://lloydrochester.com/post/hardware/libgpiod-blink-led-rpi/
+
 https://adafruit-playground.com/u/MakerMelissa/pages/comparing-libgpiod-and-gpiozero-speeds-on-the-raspberry-pi-5
 
 old way sysfs, deprecated
