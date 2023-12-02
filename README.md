@@ -7,6 +7,8 @@ install gpiod (copy 2 lines below to terminal)
 check gpio line configuration (copy line below to terminal)
 gpioinfo
 
+For Raspberry Pi 5 use gpiochip4 (For Raspberry Pi 4 use gpiochip0)
+
 set output 25 high (copy line below to terminal)
 
 gpioset gpiochip4 25=1
@@ -21,7 +23,8 @@ gpioset gpiochip4 16
 
 USEFUL LINKS:
 
-Video: https://youtu.be/koUr7oOyUXY
+Video of IO testing [PART 2 of 2]: https://youtu.be/koUr7oOyUXY
+Video, IO with GPIOD [PART 1 of 2]: https://youtu.be/cBXBhVYnU5Q
 
 Access gpio with gpiod:
 https://www.ics.com/blog/gpio-programming-exploring-libgpiod-library
