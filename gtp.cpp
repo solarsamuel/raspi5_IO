@@ -5,6 +5,7 @@
 int main() {
     gpiod_chip *chip;
     gpiod_line *input_line, *output_line;
+    //For Raspberry Pi 5 use gpiochip4 (For Raspberry Pi 4 use gpiochip0)
     const char *chipname = "gpiochip4";
     const unsigned int input_line_offset = 16; // GPIO input 16
     const unsigned int output_line_offset = 25; // GPIO output 25
