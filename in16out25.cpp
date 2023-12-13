@@ -1,3 +1,4 @@
+//If input 16 turns on then turn output 25 on. For raspberry pi 4 change it to gpiochip0
 #include <gpiod.h>
 #include <iostream>
 #include <unistd.h>
