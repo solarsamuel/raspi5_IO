@@ -1,3 +1,6 @@
+//Blink raspberry pi gpio output 25. Connect a LED to the pin in series with a 200 ohm resistor. The other end of the LED connects to ground. 
+//Works for raspberry pi 4 or 5. Change the gpiochip number for the appropriate board. 
+
 #include <gpiod.h>
 #include <iostream>
 #include <unistd.h>
