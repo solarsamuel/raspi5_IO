@@ -1,5 +1,7 @@
 # raspi5_IO
-push button goes to input16 and LED goes output25
+
+RUN PUSH BUTTON TO LED PROGRAM (push button goes to input16 and LED goes output25)
+
 install gpiod (copy 2 lines below to terminal)
 1. sudo apt-get install libgpiod2 libgpiod-dev
 2. sudo apt install gpiod
@@ -12,7 +14,15 @@ run (CNTRL+C to exit)
 
 4. ./in_out
 
+RUN SERIAL CHARACTER TRANSMIT PROGRAM
 
+compile
+
+1. g++ c_send.cpp -o cs
+
+run (CNTRL+C to exit)
+
+2. ./cs
 
 
 Manually test with lines below. Copy and paste into terminal. 
