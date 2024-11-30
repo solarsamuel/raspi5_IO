@@ -3,7 +3,14 @@ push button goes to input16 and LED goes output25
 install gpiod (copy 2 lines below to terminal)
 1. sudo apt-get install libgpiod2 libgpiod-dev
 2. sudo apt install gpiod
-3. Manually test with lines below. Copy and paste into terminal. 
+
+copmile
+3. g++ in16out25.cpp -o in_out -lgpiod
+
+run (CNTRL+C to exit)
+4. ./in_out
+
+Manually test with lines below. Copy and paste into terminal. 
 check gpio line configuration (copy line below to terminal)
 gpioinfo
 
