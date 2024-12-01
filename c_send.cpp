@@ -13,7 +13,7 @@ int uart_fd;
 
 void setup_uart() {
     // Open UART device
-    uart_fd = open("/dev/serial0", O_WRONLY | O_NOCTTY | O_NDELAY);
+    uart_fd = open("/dev/ttyAMA0", O_WRONLY | O_NOCTTY | O_NDELAY);
     if (uart_fd < 0) {
         perror("Failed to open UART device");
         exit(EXIT_FAILURE);
