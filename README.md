@@ -20,7 +20,7 @@ compile
 
 1. g++ c_send.cpp -o cs
 
-run (CNTRL+C to exit)
+run (CNTRL+X to exit)
 
 2. ./cs
 
