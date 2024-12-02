@@ -5,7 +5,9 @@ RUN PUSH BUTTON TO LED PROGRAM (push button goes to input16 and LED goes output2
 1. Copy in16out25.cpp to your Desktop and then navigate there
 
 install gpiod (copy 2 lines below to terminal)
+
 2. sudo apt-get install libgpiod2 libgpiod-dev
+   
 3. sudo apt install gpiod
 
 compile
