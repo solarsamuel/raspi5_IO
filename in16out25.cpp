@@ -1,4 +1,4 @@
-//If input 16 turns on then turn output 25 on. For raspberry pi 4 change it to gpiochip0
+//if input 16 gets connected to 3.3V then output 25 turns on and supplies 3.3V
 #include <gpiod.h>
 #include <iostream>
 #include <unistd.h>
@@ -31,15 +31,8 @@ int main() {
         return 1;
     }
 
-    // Create input line configuration with pull-down resistor
-    gpiod_line_request_config input_config = {
-        .consumer = "input-check",
-        .request_type = GPIOD_LINE_REQUEST_DIRECTION_INPUT,
-        .flags = GPIOD_LINE_REQUEST_FLAG_BIAS_PULL_DOWN
-    };
-
-    // Request input line with pull-down resistor configuration
-    if (gpiod_line_request(input_line, &input_config) < 0) {
+    // Using gpiod_line_request_input_flags function for pull-down
+    if (gpiod_line_request_input_flags(input_line, "input-check", GPIOD_LINE_REQUEST_FLAG_BIAS_PULL_DOWN) < 0) {
         std::cerr << "Could not configure input line with pull-down." << std::endl;
         gpiod_chip_close(chip);
         return 1;
@@ -65,4 +58,3 @@ int main() {
     gpiod_chip_close(chip);
     return 0;
 }
-     
