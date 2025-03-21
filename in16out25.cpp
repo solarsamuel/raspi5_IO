@@ -31,9 +31,24 @@ int main() {
         return 1;
     }
 
-    if (gpiod_line_request_input(input_line, "input-check") < 0 ||
-        gpiod_line_request_output(output_line, "output-control", 0) < 0) {
-        std::cerr << "Could not set line direction." << std::endl;
+    // Create input line configuration with pull-down resistor
+    gpiod_line_request_config input_config = {
+        .consumer = "input-check",
+        .request_type = GPIOD_LINE_REQUEST_DIRECTION_INPUT,
+        .flags = GPIOD_LINE_REQUEST_FLAG_BIAS_PULL_DOWN
+    };
+
+    // Request input line with pull-down resistor configuration
+    if (gpiod_line_request(input_line, &input_config) < 0) {
+        std::cerr << "Could not configure input line with pull-down." << std::endl;
+        gpiod_chip_close(chip);
+        return 1;
+    }
+
+    // Configure output line
+    if (gpiod_line_request_output(output_line, "output-control", 0) < 0) {
+        std::cerr << "Could not set output line." << std::endl;
+        gpiod_line_release(input_line);
         gpiod_chip_close(chip);
         return 1;
     }
@@ -44,6 +59,10 @@ int main() {
         usleep(100000); // 100ms delay between checks
     }
 
+    // Cleanup (this part will never execute due to the infinite loop)
+    gpiod_line_release(input_line);
+    gpiod_line_release(output_line);
     gpiod_chip_close(chip);
     return 0;
 }
+     
